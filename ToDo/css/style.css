@@ -1,0 +1,16 @@
+*{
+	box-sizing: border-box;
+}
+h1, h2, legend{
+	text-transform: uppercase;
+}
+h1{
+	
+}
+
+fieldset{ 
+	width: 100%;
+	border:none;
+	padding:50px;
+	 
+}

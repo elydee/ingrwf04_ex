@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width , initial-scale=1">
+	<meta charset="UTF-8">
+	<title>To Do List</title>
+	<meta name="description" content="description">
+	<link rel="stylesheet" href="css/normalize.css"/>
+	<link rel="stylesheet" href="css/jquery-ui.css"/>
+	<link rel="stylesheet" href="css/style.css"/>	
+</head>
+<body>
+	<header>
+		<h1>To Do :</h1>
+	</header>
+	<main>
+		<form action="insert.php" method="post" id="form" name="addtask">
+			<fieldset>
+				<legend>Ajouter une nouvelle tâche</legend>
+				<select name="id_category" id="category">
+					<option value="0" name="label">----</option>
+					<option value="1" name="label">Sports</option>
+					<option value="2" name="label">Entertainment</option>
+					<option value="3" name="label">Home</option>
+					<option value="4" name="label">Birthday</option>
+					<option value="5" name="label">Work</option>
+
+				</select>
+				<div>
+					<label for="date">Date :</label>
+					<input type="date" id="date" name="date" value="2016/06/10"/>
+				</div>
+				<div>
+					<label for="title">Titre : </label>
+					<input type="text" id="title" name="title" placeholder="Nouveau Titre" />
+				</div>
+				<div>
+					<label for="new_description">Description :</label>
+					<textarea name="description" id="description" cols="30" rows="10" placeholder="Nouvelle Description"></textarea>
+				</div>
+				<button type="submit" id="add" name="add">+</button>
+			</fieldset>
+		</form>
+		<ul id="todo">
+			<li><h2>title</h2><p>description</p><p>date</p><p>done</p></li>
+		</ul>
+	</main>
+	<footer></footer>
+	<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+	<script> window.jQuery || document.write('<script src="js/jquery-3.0.0.min.js"><\/script>')</script>
+	<script src="js/main.js"></script>
+	<script src="js/jquery-ui.js"></script>
+</body>
+</html>
