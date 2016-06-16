@@ -1,0 +1,43 @@
+*{
+	box-sizing: border-box;
+	font-family: helvetica,sans-serif;
+}
+.task{
+	border-radius: 20px;
+	margin:10px;
+	padding:10px;
+	width:250px;
+	height:250px;
+	float:left;
+}
+.task .cat{
+	display:inline-block;
+	padding: 10px;
+	font-family: serif;
+	font-style: italic;
+	background-color: white;
+	border-radius: 50px;
+}
+.task h1{
+	margin:0;
+	font-size:1.5em;
+	text-transform: uppercase;
+}
+
+
+
+.Sport{
+	background-color: #ff6666;
+}
+.Entertainment{
+	background-color: #006666;
+}
+.Birthdays{
+	background-color: #AAFFFF;
+}
+.Work{
+	background-color: #77BB22;
+}
+.Home{
+	background-color: #ff88AA;
+}
