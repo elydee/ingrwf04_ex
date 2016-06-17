@@ -21,10 +21,9 @@
 	endif;
 //-->Ajouter une question avec le formulaire, insérer les données du formulaire dans la base de données
 	if (isset($_POST["newQuestion"])) : 
-		$sql=sprintf("INSERT INTO Questions SET title = '%s',question='%s', date='%s', id_author= %s", 
+		$sql=sprintf("INSERT INTO Questions SET title = '%s',question='%s', id_author= %s", 
 			$_POST['title'],
 			$_POST['question'],
-			date('Y-m-d'),
 			$_SESSION['Users']['id_author']
 		); //sprintf formatte tout ce qu'on reçoit de l'utilisateur en forme de texte. Le retour sera du string. %s est une variable locale de springf.
 		$db_connect->query($sql);
@@ -38,6 +37,11 @@
 	while($question = $question_request->fetch_object()):
 		$allRowsQuestions[] = $question;
 	endwhile;
+
+	if (isset($_GET['alt']) AND $_GET['alt']=='json') :
+		echo json_encode($allRowsQuestions);
+		exit;
+	endif;
 	//myPrint_r($allRowsQuestions, "print");
 ?>
 <?php include("header.php") ?>
@@ -58,6 +62,7 @@
 		Veuillez vous connecter pour poser une question
 	</p>
 <?php endif; //fin de la condition?>
+<?php if($question_request->num_rows > 0): ?>
 <h1>Les dernières questions</h1>
 <?php for($i=0 ; $i<count($allRowsQuestions); $i++)://boucle pour récupérer chaque questions et chaque élément qui lui revient?>
 	<?php $thisRow = $allRowsQuestions[$i]; //variable du tableau?>
@@ -76,6 +81,10 @@
 	</div>
 	<?php if(isset($_SESSION['Users']['id_author']) AND $thisRow->id_author==$_SESSION['Users']['id_author']): ;//si l'id auteur existe dans la session on vérifie s'il est égal à l'objet sur lequel on est?>
 		<a href="<?php url('delete='.$thisRow-> id_question); //fonction url pour récupérer l'url de la page?>" class="delete">Delete</a>
-	<?php endif ?>
-<?php endfor; ?>
+		<a href="<?php echo "modify.php?id_question=".$allRowsQuestions[$i]->id_question ;?>" class="modify">Modify</a>
+	<?php endif ;?>
+<?php endfor ;?>
+<?php else: ?>
+	<p class="alert">Aucune question n'existe</p>
+<?php endif ?>
 <?php include('footer.php') ?>
