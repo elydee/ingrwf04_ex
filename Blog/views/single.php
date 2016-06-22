@@ -2,11 +2,18 @@
 	class SingleView{
 		function __construct(){}
 
-		function article(){ ?>
-		<?php for ($i=0; $i < count($cat); $i++) { 
-			# code...
-		} ?>
-			<div id="col1">
+		function article($array, $cat){ ?>
+		  <?php if (isset($_GET)): ?>
+              
+          <?php endif ?>
+
+           <div id="col22">
+                <div class="article">
+                <h1><?php echo $array[0]->title ;?></h1>
+                <p><?php echo $array[0]->content ;?></p>
+                </div>
+           </div>
+			<!-- <div id="col1">
                 <h1>Catégorie</h1>
             <div class="article">
                 <h1>Titre</h1>
@@ -35,7 +42,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, deserunt suscipit. Vel itaque ipsa repudiandae recusandae pariatur suscipit nisi expedita asperiores, rerum, rem cum debitis nobis facere sapiente molestias assumenda!</p>
         </div>
     
-  </div>
+  </div> -->
 		<?php }
 
 

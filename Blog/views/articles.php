@@ -30,7 +30,10 @@
 				
 
 	<?php }
-
+	function feedJson($array){
+			echo json_encode($array);
+			exit;
+	}
 
 
 

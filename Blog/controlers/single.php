@@ -6,11 +6,11 @@
 	$listSingle = new Single;
 	$listSingleView = new SingleView;
 
-	$array = $listSingle -> listing();
+	$array = $listSingle -> article();
 	$cat = $listSingle -> listingCat();
 
 	include('header.php');
-	$listSingleView -> listing($array, $cat);
+	$listSingleView -> article($array, $cat);
 	include('footer.php');
 
 ?>

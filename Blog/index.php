@@ -2,6 +2,8 @@
 			require_once('functions.php');
 			if(isset($_GET['view'])): 
 		switch ($_GET['view']) :
+		case('feed') : include('controlers/feed.php'); 
+		break;
 		case('articles') : include('controlers/articles.php'); 
 		break;
 		case('post') : include('controlers/single.php'); 
